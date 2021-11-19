@@ -5,8 +5,8 @@ import DecklistComponent from './ListDecks';
 
 function HomePage() {
     return (
-        <div>
-            <Link to='/decks/new' className='btn btn-secondary'>Create Deck</Link>
+        <div className="container">
+            <Link to='/decks/new' className='d-block btn btn-secondary'>Create Deck</Link>
             <br />
             <DecklistComponent />
         </div>

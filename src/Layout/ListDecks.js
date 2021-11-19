@@ -53,9 +53,10 @@ if (decks.length > 0){
           <div className="container">
             <div className="row card-header">
               <div className="col-10">
-              <h4>{deck.name}</h4>
+              <h4>{deck.id}&nbsp;.&nbsp;{deck.name}</h4>
+              
               </div>
-              <div className="col-2">
+              <div>
                 <p> {deck.cards.length} cards</p>
               </div>
             </div>
@@ -63,14 +64,16 @@ if (decks.length > 0){
         
         <div className="card-body">
           <p className="card-text">{deck.description}</p>
-          <div className="container">
-            <div className="row justify-content-between">
-              <div className="col-4">
-                <Link to={`decks/${deck.id}`} className="btn btn-secondary">View</Link> &nbsp;
+          <div>
+            <div className="container">
+            <div className="d-md-block btn-group align-center">
+                <Link to={`decks/${deck.id}`} className="btn btn-secondary">View</Link> 
                 <Link to={`decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
-              </div>
-              <div className="col-1">
-                <button className="btn btn-danger" value={deck.id} onClick={handleDeleteDecks}>Delete</button>
+                <button 
+                className="btn btn-danger " 
+                value={deck.id} 
+                onClick={handleDeleteDecks}
+                >Delete</button>
               </div>
             </div>
           </div>

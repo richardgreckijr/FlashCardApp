@@ -9,21 +9,6 @@
       "name": "React Router",
       "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 2
-    },
-    {
-      "name": "aasd",
-      "description": "asd",
-      "id": 3
-    },
-    {
-      "name": "FullMetal Alchemist Trivia",
-      "description": "Trivia questions based on the Anime 'FullMetal Alchemist'",
-      "id": 4
-    },
-    {
-      "name": "www",
-      "description": "www",
-      "id": 5
     }
   ],
   "cards": [
@@ -56,38 +41,6 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
-    },
-    {
-      "Front": "",
-      "Back": "",
-      "front": "Bo",
-      "back": "Bo",
-      "deckId": 3,
-      "id": 6
-    },
-    {
-      "Front": "",
-      "Back": "",
-      "front": "Who is Edward Elrich's Brother?",
-      "back": "Alphonse Elricasdfasdf",
-      "deckId": 4,
-      "id": 7
-    },
-    {
-      "Front": "",
-      "Back": "",
-      "front": "What are the name of the homunculus inspired by?",
-      "back": "The Seven deadly sins",
-      "deckId": 4,
-      "id": 8
-    },
-    {
-      "Front": "",
-      "Back": "",
-      "front": "Which of Edward's limbs are made out of Automail?",
-      "back": "Left leg, Right Arm",
-      "deckId": 4,
-      "id": 9
     }
   ]
 }

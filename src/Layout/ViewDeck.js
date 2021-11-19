@@ -82,19 +82,18 @@ if (cards.length > 0){
         </nav>
         <h3>{deck.name}</h3>
         <p>{deck.description}</p>
-        <div className="row justify-content-between">
-            <div className="col 8">
-                <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">Edit</Link> &nbsp;
-                <Link to={`/decks/${deckId}/study`} className="btn btn-primary">Study</Link> &nbsp;
-                <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link> &nbsp;
-            </div>
-            <div className="col-2">
+        <div className="row justify-content-center justify-content-md-start">
+            <div className="px-4 btn-group">
+                <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">Edit</Link> 
+                <Link to={`/decks/${deckId}/study`} className="btn btn-primary">Study</Link> 
+                <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link> 
                 <button onClick={handleDeleteDeck} className="btn btn-danger"> Delete </button>
             </div>
+        
         </div>
         <br />
         <heading>
-            <h2>Cards</h2>
+            <h2 className="text-center text-md-left">Cards</h2>
         </heading>
         <br />
 
@@ -107,9 +106,8 @@ if (cards.length > 0){
                             <div className="col-6">{card.back}</div>
                         </div>
                         <div className="row">
-                            <div className="col-9">
-                            </div>
-                            <div className="col-3">
+                            <div className="mt-5 col-9">
+                            
                             <Link to={`/decks/${deckId}/cards/${card.id}/edit`} 
                             className="btn btn-secondary">Edit</Link> &nbsp;
                             <button 
@@ -117,6 +115,7 @@ if (cards.length > 0){
                             value={card.id} 
                             className="btn btn-danger">Delete</button>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

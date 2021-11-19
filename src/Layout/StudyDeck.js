@@ -42,7 +42,7 @@ function StudyDeck() {
             setCardNum(cardNum + 1);
             setFacing(true);
         } else {
-        const restart = window.confirm(`Restart cards? Click 'Cancel' to return to the Home-Page`);
+        const restart = window.confirm(`Select okay to reset cards or click 'Cancel' to return to the Home-Page`);
     
             if(restart){
             setCardNum(0);
@@ -67,15 +67,17 @@ function StudyDeck() {
            
 
             <heading>
-                <h2>Study: {deck.name}</h2>
+                <h2 className='my-4'>Study: {deck.name}</h2>
             </heading>
-            <div className="card">
-                    <div className="card-body">
-                            <div className="row justify-Content-start">
+            <div className="d-flex card">
+                    <div className="card-body justify-content-between">
+                            <div className="row">
                                 <h3 className="card-title"> Card {cardNum + 1} of {cards.length}</h3>
-                                <div className="col-6">{(facing) ? `${cards[cardNum].front}` : `${cards[cardNum].back}`}</div>
-                                <button onClick={handleCardFlip} className="btn btn-secondary">Flip</button>
+                                <div className="card-text col-6">{(facing) ? `${cards[cardNum].front}` : `${cards[cardNum].back}`}</div>
+                                <div className='btn-group justify-content-end'>
+                                <button onClick={handleCardFlip} className="btn btn-secondary" >Flip</button>
                                 {(facing) ? ' ' : <button onClick={cardOrder} className="btn btn-primary">Next</button> }
+                                </div>
                                 </div>
                                 
                             </div>

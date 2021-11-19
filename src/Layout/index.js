@@ -13,7 +13,7 @@ import EditDeck from "./EditDeck";
 
 function Layout() {
   return (
-    <>
+    <div>
       <Header />
       <div className="container">
       
@@ -54,7 +54,7 @@ function Layout() {
       </Switch>
     
       </div>
-    </>
+    </div>
   );
 }
 
