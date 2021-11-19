@@ -2,7 +2,7 @@
  * Defines the base URL for the API.
  * The default values is overridden by the `API_BASE_URL` environment variable.
  */
-const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
+const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8080";
 
 /**
  * Defines the default headers for these functions to work with `json-server`
@@ -142,6 +142,19 @@ export async function deleteDeck(deckId, signal) {
   const url = `${API_BASE_URL}/decks/${deckId}`;
   const options = { method: "DELETE", signal };
   return await fetchJson(url, options);
+}
+/**
+ * Retrieves all cards associated with the specified `deckId`.
+ * @param deckId
+ *  the id of the target deck
+ * @param signal
+ *  optional AbortController.signal
+ * @returns {Promise<Error|*>}
+ *  a promise that resolves to a possible empty array of cards.
+ */
+ export async function listCards(deckId, signal) {
+  const url = `${API_BASE_URL}/cards?deckId=${deckId}`;
+  return await fetchJson(url, { signal });
 }
 
 /**
