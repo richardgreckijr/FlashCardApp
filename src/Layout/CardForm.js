@@ -7,7 +7,7 @@ const CardForm = ({ formData, handleChange}) => {
             Front
         </label>
         <br />
-        <input
+        <textarea
             type="textarea"
             id="front"
             name="front"
@@ -22,7 +22,7 @@ const CardForm = ({ formData, handleChange}) => {
         <label>
             Back
         </label>
-        <input 
+        <textarea
         type="textarea" 
         id="back" 
         name="back"

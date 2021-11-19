@@ -22,7 +22,7 @@ return (
         <label>
             Description
         </label>
-        <input 
+        <textarea
         type="textarea" 
         id="description" 
         name="description" 

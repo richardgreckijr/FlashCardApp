@@ -73,11 +73,11 @@ function AddCard() {
             </ol>
         </nav>
         <br />
-            <h1>{deck.name} Create Card</h1>
+            <h1>{deck.name}</h1>
             <form className='form col-12' onSubmit={handleSubmit}>
                 <CardForm formData={formData} handleChange={handleChange} />
                 <Link to="/" className="btn btn-secondary">Cancel</Link>
-                <button className="btn btn-primary m-4" onClick={handleSubmit}>Save</button>
+                <button className="btn btn-primary m-4" onClick={handleSubmit}>Add Card</button>
             </form>
         </div>
         );

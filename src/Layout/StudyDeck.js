@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { readDeck } from '../utils/api/index';
 
@@ -54,12 +54,14 @@ function StudyDeck() {
     }
     
     if (cards.length > 2){
+
         return (
             <div>
             <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
                 <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item active" aria-current="page" key="1">{deck.name}</li>
+                <li className="breadcrumb-item" aria-current="page" key="1"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
+                <li className="breadcrumb-item active" aria-current="page" key="3">Study</li>
             </ol>
             </nav>
            
@@ -67,14 +69,14 @@ function StudyDeck() {
             <heading>
                 <h2>Study: {deck.name}</h2>
             </heading>
-           <div className="card">
+            <div className="card">
                     <div className="card-body">
-                     
                             <div className="row justify-Content-start">
                                 <h3 className="card-title"> Card {cardNum + 1} of {cards.length}</h3>
                                 <div className="col-6">{(facing) ? `${cards[cardNum].front}` : `${cards[cardNum].back}`}</div>
-                                <button onClick={handleCardFlip} className="btn btn-secondary">Flip</button></div>
-                                <button onClick={cardOrder} className="btn btn-primary">Next</button>
+                                <button onClick={handleCardFlip} className="btn btn-secondary">Flip</button>
+                                {(facing) ? ' ' : <button onClick={cardOrder} className="btn btn-primary">Next</button> }
+                                </div>
                                 
                             </div>
                     </div>
@@ -83,21 +85,27 @@ function StudyDeck() {
     } else {
             return (
                 <div>
-                    <div>
-                        <nav aria-label="breadcrumb">
-                            <ol className="breadcrumb">
-                                <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page" key="1">{deck.name}</li>
-                            </ol>
-                        </nav>
-                        <h3>{deck.name}</h3>
-                        <p>{deck.description}</p>
-            
-                        <h2>No Cards, Please add some.</h2>
-                    </div>
+                <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
+                    <li className="breadcrumb-item" aria-current="page" key="1"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page" key="1">Study</li>
+                </ol>
+                </nav>
+
+                <heading>
+                    <h2>Study: {deck.name}</h2>
+                </heading>
+                <div className="card">
+                       <div className="card-body">
+                            <h3 className="card-title">Not Enough Cards.</h3>
+                            <Link to ={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link>
+                        </div> 
                 </div>
+                </div>
+            
             );
-        }
+        } 
 }
 
 export default StudyDeck
