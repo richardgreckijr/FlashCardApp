@@ -19,7 +19,6 @@ build/
 !.env.sample
 .idea/
 .vscode/
-.vercel
 .screenshots/
 .qualified-attach
 
