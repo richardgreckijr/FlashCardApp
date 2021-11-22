@@ -2,7 +2,7 @@
  * Defines the base URL for the API.
  * The default values is overridden by the `API_BASE_URL` environment variable.
  */
-const API_BASE_URL = 'https://flash-card-app-backend.herokuapp.com/';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
 
 /**
  * Defines the default headers for these functions to work with `json-server`
@@ -152,7 +152,7 @@ export async function deleteDeck(deckId, signal) {
  * @returns {Promise<Error|*>}
  *  a promise that resolves to a possible empty array of cards.
  */
- export async function listCards(deckId, signal) {
+export async function listCards(deckId, signal) {
   const url = `${API_BASE_URL}/cards?deckId=${deckId}`;
   return await fetchJson(url, { signal });
 }
