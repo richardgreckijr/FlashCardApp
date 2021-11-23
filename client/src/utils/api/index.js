@@ -59,6 +59,9 @@ async function fetchJson(url, options, onCancel) {
   } catch (error) {
     if (error.name !== "AbortError") {
       console.error(error.stack);
+      console.log(error.message);
+      console.log (error.stack.json());
+      console.log (error.stack.text());
       throw error;
     }
     return Promise.resolve(onCancel);
