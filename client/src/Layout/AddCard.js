@@ -59,7 +59,7 @@ function AddCard() {
         <div className="col-12 justify-content-center">
         <nav className="justify-content-center" aria-label="breadcrumb">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><Link to="/">
+            <li class="breadcrumb-item" key="0"><Link to="/">
             <svg xmlns="http://www.w3.org/2000/svg" 
             width="14" height="14" 
             fill="currentColor" 
@@ -69,7 +69,7 @@ function AddCard() {
             .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 
             0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
             </svg>{" "}Home</Link></li>
-            <li class="breadcrumb-item active" aria-current="page">Create Deck</li>
+            <li class="breadcrumb-item active" aria-current="page" key="1">Create Deck</li>
             </ol>
         </nav>
         <br />

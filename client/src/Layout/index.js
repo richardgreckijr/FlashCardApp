@@ -13,9 +13,9 @@ import EditDeck from "./EditDeck";
 
 function Layout() {
   return (
-    <div>
+    <div key='0'>
       <Header />
-      <div className="container">
+      <div className="container" key='1'>
       
       <Switch>
         <Route exact={true} path={'/'}>

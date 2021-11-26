@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { listDecks, deleteDeck } from '../utils/api/index'
 
+const params = useParams();
+const deckId = params.deckId;
+
 function DecklistComponent() {
 const [decks, setDecks] = useState([]);
 
@@ -19,7 +22,7 @@ useEffect(() => {
         }
     }
     loadDecks();
-}, []);
+}, [deckId]);
 
 const handleDeleteDecks = ({target}) => {
 const selected = target.value;
@@ -49,15 +52,15 @@ if (decks.length > 0){
     return (
       <div>
         {decks.map((deck) =>(
-          <div className="card">
-          <div className="container">
-            <div className="row card-header">
-              <div className="col-10">
-              <h4>{deck.id}&nbsp;.&nbsp;{deck.name}</h4>
+          <div className="card" key='0'>
+          <div className="container" key='1'>
+            <div className="row card-header" key='2'>
+              <div className="col-10" key='3'>
+              <h4 key='4'>{deck.id}&nbsp;.&nbsp;{deck.name}</h4>
               
               </div>
               <div>
-                <p> {deck.cards.length} cards</p>
+                <p key='5'> {deck.cards.length} cards</p>
               </div>
             </div>
           </div>

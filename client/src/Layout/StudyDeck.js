@@ -59,9 +59,17 @@ function StudyDeck() {
             <div>
             <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-                <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item" aria-current="page" key="1"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
-                <li className="breadcrumb-item active" aria-current="page" key="3">Study</li>
+                <li 
+                className="breadcrumb-item" 
+                key="0"><Link to="/">Home</Link></li>
+                <li 
+                className="breadcrumb-item" 
+                aria-current="page" 
+                key="1"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
+                <li 
+                className="breadcrumb-item active" 
+                aria-current="page" 
+                key="2">Study</li>
             </ol>
             </nav>
            
@@ -75,8 +83,13 @@ function StudyDeck() {
                                 <h3 className="card-title"> Card {cardNum + 1} of {cards.length}</h3>
                                 <div className="card-text col-6">{(facing) ? `${cards[cardNum].front}` : `${cards[cardNum].back}`}</div>
                                 <div className='btn-group justify-content-end'>
-                                <button onClick={handleCardFlip} className="btn btn-secondary" >Flip</button>
-                                {(facing) ? ' ' : <button onClick={cardOrder} className="btn btn-primary">Next</button> }
+                                    <button 
+                                    onClick={handleCardFlip} 
+                                    className="btn btn-secondary" >Flip</button>
+                                    {(facing) ? ' ' : 
+                                    <button 
+                                    onClick={cardOrder} 
+                                    className="btn btn-primary">Next</button> }
                                 </div>
                                 </div>
                                 
@@ -89,9 +102,27 @@ function StudyDeck() {
                 <div>
                 <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
-                    <li className="breadcrumb-item" aria-current="page" key="1"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
-                    <li className="breadcrumb-item active" aria-current="page" key="1">Study</li>
+                    <li 
+                    className="breadcrumb-item" 
+                    key="3">
+                        <Link to="/">
+                        Home
+                        </Link>
+                    </li>
+                    <li 
+                    className="breadcrumb-item" 
+                    aria-current="page" 
+                    key="4">
+                        <Link to={`/decks/${deckId}`}>
+                            {deck.name}
+                        </Link>
+                    </li>
+                    <li 
+                    className="breadcrumb-item active" 
+                    aria-current="page" 
+                    key="5">
+                        Study
+                    </li>
                 </ol>
                 </nav>
 
@@ -101,7 +132,9 @@ function StudyDeck() {
                 <div className="card">
                        <div className="card-body">
                             <h3 className="card-title">Not Enough Cards.</h3>
-                            <Link to ={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link>
+                            <Link 
+                            to ={`/decks/${deckId}/cards/new`} 
+                            className="btn btn-primary">Add Cards</Link>
                         </div> 
                 </div>
                 </div>

@@ -98,22 +98,23 @@ if (cards.length > 0){
         <br />
 
         {cards.map((card) => (
-            <div className="card">
-                <div className="card-body">
-                    <div className="container">
-                        <div className="row justify-Content-start">
-                            <div className="col-6">{card.front}</div>
-                            <div className="col-6">{card.back}</div>
+            <div className="card" key='0'>
+                <div className="card-body" key='1'>
+                    <div className="container" key='2'>
+                        <div className="row justify-Content-start" key='3'>
+                            <div className="col-6" key='4'>{card.front}</div>
+                            <div className="col-6" key='5'>{card.back}</div>
                         </div>
-                        <div className="row">
-                            <div className="mt-5 col-9">
+                        <div className="row" key='6'>
+                            <div className="mt-5 col-9" key='7'>
                             
                             <Link to={`/decks/${deckId}/cards/${card.id}/edit`} 
-                            className="btn btn-secondary">Edit</Link> &nbsp;
+                            className="btn btn-secondary" key='8'>Edit</Link> &nbsp;
                             <button 
                             onClick={handleDeleteCard} 
                             value={card.id} 
-                            className="btn btn-danger">Delete</button>
+                            className="btn btn-danger"
+                            key='9'>Delete</button>
                             </div>
                             
                         </div>

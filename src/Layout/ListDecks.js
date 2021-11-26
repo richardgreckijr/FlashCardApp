@@ -49,31 +49,53 @@ if (decks.length > 0){
     return (
       <div>
         {decks.map((deck) =>(
-          <div className="card">
-          <div className="container">
-            <div className="row card-header">
-              <div className="col-10">
-              <h4>{deck.id}&nbsp;.&nbsp;{deck.name}</h4>
+          <div className="card" 
+               key='0'>
+          <div className="container" 
+               key='1'>
+            <div className="row card-header" 
+                 key='2'>
+              <div className="col-10" 
+                   key='3'>
+              <h4  key='4'>{deck.name}</h4>
               
               </div>
-              <div>
-                <p> {deck.cards.length} cards</p>
+              <div key='5'>
+                <p key='6'> {deck.cards.length} cards</p>
               </div>
             </div>
           </div>
         
-        <div className="card-body">
-          <p className="card-text">{deck.description}</p>
-          <div>
-            <div className="container">
-            <div className="d-md-block btn-group align-center">
-                <Link to={`decks/${deck.id}`} className="btn btn-secondary">View</Link> 
-                <Link to={`decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
+        <div className="card-body" 
+             key='7'>
+          <p className="card-text" 
+             key='8'>{deck.description}</p>
+          <div 
+          key='9'>
+            <div className="container" 
+                 key='9'>
+            <div className="d-md-block btn-group align-center" 
+                 key='10'>
+
+                <Link 
+                to={`decks/${deck.id}`} 
+                className="btn btn-secondary" 
+                key='11'>View
+                </Link> 
+
+                <Link 
+                to={`decks/${deck.id}/study`} 
+                className="btn btn-primary"
+                key='12'>Study
+                </Link>
+
                 <button 
                 className="btn btn-danger " 
                 value={deck.id} 
                 onClick={handleDeleteDecks}
-                >Delete</button>
+                key='13'
+                >Delete
+                </button>
               </div>
             </div>
           </div>
