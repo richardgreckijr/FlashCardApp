@@ -47,35 +47,35 @@ if (result) {
 if (decks.length > 0){
       
     return (
-      <div>
+      <div key="35">
         {decks.map((deck) =>(
           <div className="card" 
-               key='0'>
+               key={deck.id}>
           <div className="container" 
-               key='1'>
+               >
             <div className="row card-header" 
-                 key='2'>
+                >
               <div className="col-10" 
-                   key='3'>
-              <h4  key='4'>{deck.name}</h4>
+                   >
+              <h4  >{deck.name}</h4>
               
               </div>
-              <div key='5'>
-                <p key='6'> {deck.cards.length} cards</p>
+              <div >
+                <p > {deck.cards.length} cards</p>
               </div>
             </div>
           </div>
         
         <div className="card-body" 
-             key='7'>
+            >
           <p className="card-text" 
-             key='8'>{deck.description}</p>
+             >{deck.description}</p>
           <div 
-          key='9'>
+          >
             <div className="container" 
-                 key='9'>
+                 >
             <div className="d-md-block btn-group align-center" 
-                 key='10'>
+                 >
 
                 <Link 
                 to={`decks/${deck.id}`} 

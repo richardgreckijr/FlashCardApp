@@ -4,24 +4,19 @@ import { readDeck, updateDeck } from '../utils/api/index';
 import DeckForm from './DeckForm';
 
 function EditDeck() {
-    const intialFormState = {
-        name: '',
-        description: '',
-    };
-    const [formData, setFormData] = useState({...intialFormState});
-    const [deck, setDeck] = useState({});
-    const [cards, setCards] = useState({});
-    const params = useParams();
     const history = useHistory();
+    const params = useParams();
     const deckId = params.deckId;
+    const [name, setName] = useState('');
+    const [deck, setDeck] = useState({});
 
     useEffect(() => {
-        setCards({});
-
+        setDeck({})
         async function loadData() {
             try {
             const response = await readDeck(deckId);
             setDeck(response); 
+            setName(response.name);
             
             } catch (error) {
             if(error.name === 'AbortError'){
@@ -34,15 +29,14 @@ function EditDeck() {
         loadData();
     }, [deckId]);
 
-    const handleChange = ({target}) => {
+    const handleChange = ({ target }) => {
         const value = target.value;
         setDeck({...deck, [target.name]: value});
     };
 
     const handleSubmit = (event) => {
-        let response = [];
         event.preventDefault();
-        async function updateForm () {
+        async function updateForm() {
             try {
               await updateDeck(deck);
               history.push(`/decks/${deckId}`);
@@ -58,11 +52,11 @@ function EditDeck() {
     }
     return (
         <div>
-            <form className='form col-12' onSubmit={handleSubmit}>
-            <DeckForm formData={deck} handleChange={handleChange} />
-            <Link to="/" className="btn btn-secondary">Cancel</Link>
-            <button className="btn btn-primary m-4" type='submit'>Submit</button>
-        </form>
+            <DeckForm 
+            handleChange={handleChange} 
+            handleSubmit={handleSubmit} 
+            name={deck.name} 
+            description={deck.description}/>
         </div>
     )
 }

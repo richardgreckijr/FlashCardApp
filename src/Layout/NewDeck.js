@@ -17,7 +17,7 @@ function NewDeck(){
     };
 
     const handleSubmit = (event) => {
-        let response = [];
+        
         event.preventDefault();
         async function updateForm () {
             try {
@@ -54,11 +54,9 @@ function NewDeck(){
         </ol>
     </nav>
         <h1>Create Deck</h1>
-        <form className='form col-12' onSubmit={handleSubmit}>
-            <DeckForm formData={formData} handleChange={handleChange} />
-            <Link to="/" className="btn btn-secondary">Cancel</Link>
-            <button className="btn btn-primary m-4" type='submit'>Submit</button>
-        </form>
+
+            <DeckForm name={formData.name} description={formData.description} handleSubmit={handleSubmit} handleChange={handleChange} />
+
     </div>
     );
 }

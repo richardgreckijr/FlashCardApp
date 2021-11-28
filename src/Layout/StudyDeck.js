@@ -81,9 +81,9 @@ function StudyDeck() {
             </nav>
            
 
-            <heading>
+            
                 <h2 className='my-4'>Study: {deck.name}</h2>
-            </heading>
+            
             <div className="d-flex card">
                     <div className="card-body justify-content-between">
                             <div className="row">
@@ -100,7 +100,7 @@ function StudyDeck() {
                                     onClick={cardOrder} 
                                     className="btn btn-primary">
                                     Next
-                                    </button> }
+                                    </button>}
 
                                 </div>
                                 </div>
@@ -120,9 +120,9 @@ function StudyDeck() {
                 </ol>
                 </nav>
 
-                <heading>
+                
                     <h2>Study: {deck.name}</h2>
-                </heading>
+                
                 <div className="card">
                        <div className="card-body">
                             <h3 className="card-title">Not Enough Cards.</h3>

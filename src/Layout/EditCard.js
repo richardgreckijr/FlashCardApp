@@ -18,7 +18,6 @@ function EditCard() {
     const [formData, setFormData] =  useState({...intialCardState});
 
     useEffect(() => {
-        setDeck({});
 
         async function loadData(){
             try{
@@ -42,7 +41,6 @@ function EditCard() {
     };
 
     const handleSubmit = (event) => {
-        let response = [];
         event.preventDefault();
         async function updateForm () {
             try{
