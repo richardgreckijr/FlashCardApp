@@ -24,7 +24,7 @@ useEffect(() => {
 const handleDeleteDecks = ({target}) => {
 const selected = target.value;
 
-const result = window.confirm(`Are you sure you want to delete ${selected}?`);
+const result = window.confirm('Are you sure you want to delete this deck? You will not be able to recover it.');
 
 if (result) {
     async function deleteData(){

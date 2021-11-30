@@ -12,8 +12,10 @@ function NewDeck(){
     const [formData, setFormData] = useState({...intialFormState});
 
     const handleChange = ({target}) => {
-        const value = target.value;
-        setFormData({...formData, [target.name]: value});
+        setFormData({
+            ...formData, 
+            [target.name]: target.value,
+        })
     };
 
     const handleSubmit = (event) => {
@@ -55,7 +57,10 @@ function NewDeck(){
     </nav>
         <h1>Create Deck</h1>
 
-            <DeckForm name={formData.name} description={formData.description} handleSubmit={handleSubmit} handleChange={handleChange} />
+            <DeckForm name={formData.name} 
+            description={formData.description} 
+            handleSubmit={handleSubmit} 
+            handleChange={handleChange} />
 
     </div>
     );

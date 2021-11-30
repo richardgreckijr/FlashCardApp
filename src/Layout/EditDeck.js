@@ -7,16 +7,14 @@ function EditDeck() {
     const history = useHistory();
     const params = useParams();
     const deckId = params.deckId;
-    const [name, setName] = useState('');
     const [deck, setDeck] = useState({});
 
     useEffect(() => {
-        setDeck({})
         async function loadData() {
             try {
             const response = await readDeck(deckId);
             setDeck(response); 
-            setName(response.name);
+
             
             } catch (error) {
             if(error.name === 'AbortError'){
@@ -29,10 +27,7 @@ function EditDeck() {
         loadData();
     }, [deckId]);
 
-    const handleChange = ({ target }) => {
-        const value = target.value;
-        setDeck({...deck, [target.name]: value});
-    };
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -50,8 +45,24 @@ function EditDeck() {
         }
         updateForm();
     }
+
+    const handleChange = ({ target }) => {
+        setDeck({
+            ...deck, 
+            [target.name]: target.value,
+        })
+    };
+
+
     return (
         <div>
+                    <nav className="justify-content-center" aria-label="breadcrumb">
+            <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link to="/">
+           {" "}Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">Edit Deck</li>
+            </ol>
+        </nav>
             <DeckForm 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 

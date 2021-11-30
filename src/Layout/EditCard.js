@@ -58,7 +58,14 @@ function EditCard() {
     }
 
     return (
-        <div>
+        <div>       
+             <nav className="justify-content-center" aria-label="breadcrumb">
+        <ol className="breadcrumb">
+        <li className="breadcrumb-item"><Link to="/">
+       {" "}Home</Link></li>
+        <li className="breadcrumb-item active" aria-current="page">Edit Card</li>
+        </ol>
+        </nav>
             <form className='form col-12' onSubmit={handleSubmit}>
             <CardForm formData={card} handleChange={handleChange} />
             <Link to="/" className="btn btn-secondary">Cancel</Link>

@@ -30,7 +30,7 @@ function Deck() {
     }, [deckId]);
 
     const handleDeleteDeck = async () => {
-        const result = window.confirm(`Are you sure you want to delete ${deckId}`);
+        const result = window.confirm('Are you sure you want to delete this deck? You will not be able to recover it.');
         if (result) {
             async function deleteData() {
                 try {
@@ -50,7 +50,7 @@ function Deck() {
     };
     const handleDeleteCard = async ({ target }) => {
         const value = target.value;
-        const result = window.confirm(`Are you sure you want to delete ${value}?`);
+        const result = window.confirm('Are you sure you want to delete this card? You will not be able to recover it.');
 
         if (result) {
             async function deleteData() {
