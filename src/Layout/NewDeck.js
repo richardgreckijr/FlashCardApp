@@ -5,8 +5,8 @@ import DeckForm from './DeckForm';
 
 function NewDeck(){
     const intialFormState = {
-        name: '',
-        description: '',
+        Name: '',
+        Description: '',
     };
     const history = useHistory();
     const [formData, setFormData] = useState({...intialFormState});
@@ -19,7 +19,6 @@ function NewDeck(){
     };
 
     const handleSubmit = (event) => {
-        
         event.preventDefault();
         async function updateForm () {
             try {
@@ -40,7 +39,8 @@ function NewDeck(){
 
     return (
     <div className="col-12 justify-content-center">
-    <nav className="justify-content-center" aria-label="breadcrumb">
+    <nav className="justify-content-center" 
+         aria-label="breadcrumb">
         <ol className="breadcrumb">
             <li className="breadcrumb-item" 
                 key='0'>
@@ -56,12 +56,10 @@ function NewDeck(){
         </ol>
     </nav>
         <h1>Create Deck</h1>
-
             <DeckForm name={formData.name} 
             description={formData.description} 
             handleSubmit={handleSubmit} 
             handleChange={handleChange} />
-
     </div>
     );
 }

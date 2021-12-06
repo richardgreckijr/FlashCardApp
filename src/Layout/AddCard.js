@@ -21,9 +21,11 @@ function AddCard() {
     };
 
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
         async function loadData() {
            try {
-            const response = await readDeck(deckId);
+            const response = await readDeck(deckId, signal);
             setDeck(response);  
            } catch (error) {
                if (error.name === 'AbortError'){
@@ -34,15 +36,15 @@ function AddCard() {
            }
         }
         loadData();
-    }, [deckId]);
+        controller.abort();
+        }, [deckId]);
 
     const handleSubmit = (event) => {
-        let response = [];
         event.preventDefault();
         async function updateForm () {
             try {
                 const response = await createCard(deckId, formData);
-                setFormData(intialCardState)
+                setFormData(response)
             } catch (error) {
                 if(error.name === 'AbortError'){
                     console.log('Aborted');

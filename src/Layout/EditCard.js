@@ -5,17 +5,12 @@ import CardForm from './CardForm';
 
 
 function EditCard() {
-    const intialCardState = {
-        front: '',
-        back: '',
-    };
     const history = useHistory();
     const params = useParams();
     const deckId = params.deckId;
     const cardId = params.cardId;
     const [card, setCard] = useState({});
-    const [deck, setDeck] = useState({});
-    const [formData, setFormData] =  useState({...intialCardState});
+
 
     useEffect(() => {
 
@@ -33,7 +28,7 @@ function EditCard() {
             }
         }
         loadData();
-    }, [deckId]);
+    }, [cardId]);
 
     const handleChange = ({target}) => {
         const value = target.value;

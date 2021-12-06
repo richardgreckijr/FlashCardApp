@@ -18,7 +18,7 @@ return (
             id="name"
             placeholder="Enter Deck Name"
             onChange={handleChange}
-            value={name}
+            value={name || ""}
             style={{ width: '100%' }}
         />
         <br />
@@ -33,7 +33,7 @@ return (
             placeholder="Enter Deck Description"
             rows="3" 
             onChange={handleChange} 
-            value={description} 
+            value={description || ""} 
             style={{ width: '100%' }}
         />
         <br />
@@ -44,7 +44,8 @@ return (
       >
         Cancel
       </Link>
-      <button type="submit" className="btn btn-primary mb-4">
+      <button type="submit" 
+              className="btn btn-primary mb-4">
         Submit
       </button>
     </form>

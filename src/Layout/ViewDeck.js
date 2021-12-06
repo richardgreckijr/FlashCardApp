@@ -76,7 +76,7 @@ function Deck() {
             <div>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item" ><Link to="/">Home</Link></li>
                         <li className="breadcrumb-item active" aria-current="page" key="1">{deck.name}</li>
                     </ol>
                 </nav>
@@ -97,38 +97,38 @@ function Deck() {
                
                 <br />
 
-                {cards.map((card) => (
+                {cards.map((card, index) => (
                     <div className="card"
-                        key='0'>
+                        key={card.index}>
                         <div className="card-body"
-                            key='1'>
+                            >
                             <div className="container"
-                                key='2'>
+                                >
                                 <div className="row justify-Content-start"
-                                     key='3'>
+                                     >
                                     <div className="col-6"
-                                         key='4'>{card.front}
+                                         >{card.front}
                                     </div>
                                     <div className="col-6"
-                                         key='5'>{card.back}
+                                         >{card.back}
                                     </div>
                                 </div>
                                 <div className="row"
-                                     key='6'>
+                                     >
                                     <div className="mt-5 col-9"
-                                         key='7'>
+                                         >
 
                                         <Link 
                                         to={`/decks/${deckId}/cards/${card.id}/edit`}
                                         className="btn btn-secondary"
-                                        key='8'>Edit
+                                        >Edit
                                         </Link> &nbsp;
 
                                         <button
                                             onClick={handleDeleteCard}
                                             value={card.id}
                                             className="btn btn-danger"
-                                            key='9'>Delete
+                                            >Delete
                                         </button>
                                     </div>
 
@@ -145,8 +145,8 @@ function Deck() {
                 <div>
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item" key="0"><Link to="/">Home</Link></li>
-                            <li className="breadcrumb-item active" aria-current="page" key="1">{deck.name}</li>
+                            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                            <li className="breadcrumb-item active" aria-current="page" >{deck.name}</li>
                         </ol>
                     </nav>
                     <h3>{deck.name}</h3>
