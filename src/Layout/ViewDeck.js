@@ -99,7 +99,7 @@ function Deck() {
 
                 {cards.map((card, index) => (
                     <div className="card"
-                        key={card.index}>
+                        key={index}>
                         <div className="card-body"
                             >
                             <div className="container"

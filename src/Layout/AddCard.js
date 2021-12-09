@@ -12,20 +12,18 @@ function AddCard() {
     const intialCardState = {
         Front: '',
         Back: '',
+        deckId
     };
     const [formData, setFormData] = useState({...intialCardState});
-    
     const handleChange = ({target}) => {
         const value = target.value;
-        setFormData({...formData, [target.name]: value });
+        setFormData({...formData, [target.name]: value, });
     };
 
     useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
         async function loadData() {
            try {
-            const response = await readDeck(deckId, signal);
+            const response = await readDeck(deckId);
             setDeck(response);  
            } catch (error) {
                if (error.name === 'AbortError'){
@@ -36,15 +34,14 @@ function AddCard() {
            }
         }
         loadData();
-        controller.abort();
-        }, [deckId]);
+    }, [deckId]);
 
-    const handleSubmit = (event) => {
+    const handleSave = (event) => {
         event.preventDefault();
         async function updateForm () {
             try {
                 const response = await createCard(deckId, formData);
-                setFormData(response)
+                setFormData(intialCardState, response);
             } catch (error) {
                 if(error.name === 'AbortError'){
                     console.log('Aborted');
@@ -54,9 +51,13 @@ function AddCard() {
             }
         }
         updateForm();
-        history.push(`/decks/${deckId}`);
-
+        window.confirm('Card was saved successfully!')
     }
+
+    const handleSubmit= () => {
+        history.push(`/decks/${deckId}`);
+    }
+
     return (
         <div className="col-12 justify-content-center">
         <nav className="justify-content-center" aria-label="breadcrumb">
@@ -68,10 +69,11 @@ function AddCard() {
         </nav>
         <br />
             <h1>{deck.name}</h1>
-            <form className='form col-12' onSubmit={handleSubmit}>
+            <form className='form col-12' onSubmit={handleSave}>
                 <CardForm formData={formData} handleChange={handleChange} />
                 <Link to="/" className="btn btn-secondary">Cancel</Link>
-                <button className="btn btn-primary m-4" onClick={handleSubmit}>Add Card</button>
+                <button type="button" className="btn btn-primary m-4" onClick={handleSave}>Save Card</button>
+                <button type="button" className="btn btn-primary m-4" onClick={handleSubmit}>Done</button>
             </form>
         </div>
         );
